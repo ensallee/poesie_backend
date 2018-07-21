@@ -16,8 +16,7 @@ ActiveRecord::Schema.define(version: 2018_07_16_215444) do
   enable_extension "plpgsql"
 
   create_table "poems", force: :cascade do |t|
-    t.text "body"
-    t.string "title"
+    t.text "url"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
