@@ -17,6 +17,14 @@ class PoemsController < ApplicationController
     end
   end
 
+  def destroy
+    @poem = Poem.find(params[:id])
+    @poem.destroy
+    render json: {
+      message: "deleted"
+    }, status: :ok
+  end
+
   private
 
   def poem_params
