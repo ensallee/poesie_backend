@@ -1,4 +1,5 @@
 class PoemsController < ApplicationController
+  before_action :requires_login, only: [:create, :destroy]
 
   def create
     id = decoded_token[0]['id']
