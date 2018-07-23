@@ -15,6 +15,9 @@ class UsersController < ApplicationController
 
     @user.username = params[:username]
     @user.password = params[:password]
+    @user.display_name = params[:display_name]
+    @user.hometown = params[:hometown]
+    @user.bio = params[:bio]
 
     if (@user.save)
       render json: {
