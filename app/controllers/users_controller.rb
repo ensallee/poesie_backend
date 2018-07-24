@@ -33,7 +33,8 @@ class UsersController < ApplicationController
   end
 
   def poems
-    id = decoded_token[0]['id']
+    # id = decoded_token[0]['id']
+    id = params[:id]
     @user = User.find_by(id: id)
     render json: @user.poems
   end
