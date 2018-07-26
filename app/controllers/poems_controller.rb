@@ -1,5 +1,9 @@
 class PoemsController < ApplicationController
-  before_action :requires_login, only: [:create, :destroy]
+  before_action :requires_login, only: [:index, :create, :destroy]
+
+  def index
+    render json: Poem.all
+  end
 
   def create
     id = decoded_token[0]['id']
