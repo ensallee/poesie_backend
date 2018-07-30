@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :requires_login, only: [:index, :show, :poems]
+  before_action :requires_login, only: [:index, :show, :update, :poems]
 
   def index
     render json: User.all
@@ -32,11 +32,27 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = User.find(params[:id])
+    @user.update(user_params)
+    if @user.valid?
+      render json: @user
+    else
+      render json: {
+        errors: @user.errors.full_messages
+      }, status: :unprocessable_entity
+    end
+  end
+
   def poems
     # id = decoded_token[0]['id']
     id = params[:id]
     @user = User.find_by(id: id)
     render json: @user.poems
   end
+
+  def user_params
+     params.require(:user).permit(:display_name, :hometown, :bio)
+   end
 
 end
