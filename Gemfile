@@ -46,3 +46,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'active_model_serializers'
 gem "jwt"
 gem "dotenv-rails"
+gem "carrierwave"
+gem "mini_magick"
+gem "rmagick"

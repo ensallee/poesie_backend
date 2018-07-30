@@ -51,8 +51,14 @@ class UsersController < ApplicationController
     render json: @user.poems
   end
 
+  def images
+    id = params[:id]
+    @user = User.find_by(id: id)
+    render json: @user.images
+  end
+
   def user_params
      params.require(:user).permit(:display_name, :hometown, :bio)
-   end
+  end
 
 end
