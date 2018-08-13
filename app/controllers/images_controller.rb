@@ -1,5 +1,4 @@
 class ImagesController < ApplicationController
-  before_action :requires_login, only: [:index, :create]
 
   def index
     render json: Image.all
